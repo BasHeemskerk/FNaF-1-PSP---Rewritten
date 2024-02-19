@@ -267,6 +267,45 @@ namespace scene_builder{
             i_renderer::background::custom_night::render_golden_freddy();
 
             button_action();
+            set_ai_level_display();
+        }
+
+        void set_ai_level_display(){
+            if (animatronic::freddy::first_digit == 10){
+                animatronic::freddy::first_digit = 0;
+                animatronic::freddy::second_digit += 1;
+            }
+            else if (animatronic::freddy::first_digit < 0 && animatronic::freddy::second_digit > 0){
+                animatronic::freddy::first_digit = 9;
+                animatronic::freddy::second_digit -= 1;
+            }
+            
+            if (animatronic::bonnie::first_digit == 10){
+                animatronic::bonnie::first_digit = 0;
+                animatronic::bonnie::second_digit += 1;
+            }
+            else if (animatronic::bonnie::first_digit < 0 && animatronic::bonnie::second_digit > 0){
+                animatronic::bonnie::first_digit = 9;
+                animatronic::bonnie::second_digit -= 1;
+            }
+
+            if (animatronic::chica::first_digit == 10){
+                animatronic::chica::first_digit = 0;
+                animatronic::chica::second_digit += 1;
+            }
+            else if (animatronic::chica::first_digit < 0 && animatronic::chica::second_digit > 0){
+                animatronic::chica::first_digit = 9;
+                animatronic::chica::second_digit -= 1;
+            }
+
+            if (animatronic::foxy::first_digit == 10){
+                animatronic::foxy::first_digit = 0;
+                animatronic::foxy::second_digit += 1;
+            }
+            else if (animatronic::foxy::first_digit < 0 && animatronic::foxy::second_digit > 0){
+                animatronic::foxy::first_digit = 9;
+                animatronic::foxy::second_digit -= 1;
+            }
         }
 
         void button_action(){
@@ -293,7 +332,62 @@ namespace scene_builder{
                         std::cout << "RTRIGGER" << std::endl;
                     }
                 }
-                button_delay = 3;
+
+                if (input::ctrlData.Buttons & PSP_CTRL_RIGHT){
+                    if (i_renderer::background::custom_night::position == 0){
+                        if (animatronic::freddy::ai_level < 20){
+                            animatronic::freddy::ai_level += 1;
+                            animatronic::freddy::first_digit += 1;
+                        }
+                    }
+                    if (i_renderer::background::custom_night::position == 1){
+                        if (animatronic::bonnie::ai_level < 20){
+                            animatronic::bonnie::ai_level += 1;
+                            animatronic::bonnie::first_digit += 1;
+                        }
+                    }
+                    if (i_renderer::background::custom_night::position == 2){
+                        if (animatronic::chica::ai_level < 20){
+                            animatronic::chica::ai_level += 1;
+                            animatronic::chica::first_digit += 1;
+                        }
+                    }
+                    if (i_renderer::background::custom_night::position == 3){
+                        if (animatronic::foxy::ai_level < 20){
+                            animatronic::foxy::ai_level += 1;
+                            animatronic::foxy::first_digit += 1;
+                        }
+                    }
+                    
+                }
+                if (input::ctrlData.Buttons & PSP_CTRL_LEFT){
+                    if (i_renderer::background::custom_night::position == 0){
+                        if (animatronic::freddy::ai_level > 0){
+                            animatronic::freddy::ai_level -= 1;
+                            animatronic::freddy::first_digit -= 1;
+                        }
+                    }
+                    if (i_renderer::background::custom_night::position == 1){
+                        if (animatronic::bonnie::ai_level > 0){
+                            animatronic::bonnie::ai_level -= 1;
+                            animatronic::bonnie::first_digit -= 1;
+                        }
+                    }
+                    if (i_renderer::background::custom_night::position == 2){
+                        if (animatronic::chica::ai_level > 0){
+                            animatronic::chica::ai_level -= 1;
+                            animatronic::chica::first_digit -= 1;
+                        }
+                    }
+                    if (i_renderer::background::custom_night::position == 3){
+                        if (animatronic::foxy::ai_level > 0){
+                            animatronic::foxy::ai_level -= 1;
+                            animatronic::foxy::first_digit -= 1;
+                        }
+                    }
+                }
+
+                button_delay = 4;
             }
             else{
                 button_delay -= 1;

@@ -43,5 +43,6 @@ namespace scene_builder{
         void run_custom_night_scene();
 
         void button_action();
+        void set_ai_level_display();
     }
 }

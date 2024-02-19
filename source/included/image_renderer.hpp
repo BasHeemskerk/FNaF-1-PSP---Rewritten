@@ -2,6 +2,7 @@
 #include "image_loader.hpp"
 #include "save_system.hpp"
 #include "game_text.hpp"
+#include "animatronic.hpp"
 
 namespace i_renderer{
     namespace background{

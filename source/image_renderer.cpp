@@ -206,7 +206,30 @@ namespace i_renderer{
                 }
             }
             void render_levels(){
-
+                for (int i=0; i<10; i++){
+                    if (game_text::global::numbers_normal[i] != NULL){
+                        //freddy
+                        drawSpriteAlpha(0, 0, 20, 20, game_text::global::numbers_normal[animatronic::freddy::first_digit], 88, 160, 0);
+                        if (animatronic::freddy::ai_level > 9){
+                            drawSpriteAlpha(0, 0, 20, 20, game_text::global::numbers_normal[animatronic::freddy::second_digit], 73, 160, 0);
+                        }
+                        //bonnie
+                        drawSpriteAlpha(0, 0, 20, 20, game_text::global::numbers_normal[animatronic::bonnie::first_digit], 188, 160, 0);
+                        if (animatronic::bonnie::ai_level > 9){
+                            drawSpriteAlpha(0, 0, 20, 20, game_text::global::numbers_normal[animatronic::bonnie::second_digit], 173, 160, 0);
+                        }
+                        //chika
+                        drawSpriteAlpha(0, 0, 20, 20, game_text::global::numbers_normal[animatronic::chica::first_digit], 288, 160, 0);
+                        if (animatronic::chica::ai_level > 9){
+                            drawSpriteAlpha(0, 0, 20, 20, game_text::global::numbers_normal[animatronic::chica::second_digit], 273, 160, 0);
+                        }
+                        //foxy
+                        drawSpriteAlpha(0, 0, 20, 20, game_text::global::numbers_normal[animatronic::foxy::first_digit], 388, 160, 0);
+                        if (animatronic::foxy::ai_level > 9){
+                            drawSpriteAlpha(0, 0, 20, 20, game_text::global::numbers_normal[animatronic::foxy::second_digit], 373, 160, 0);
+                        }
+                    }
+                }
             }
             void render_actions(){
                 if (i_loader::background::custom_night::create != NULL){
