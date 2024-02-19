@@ -22,7 +22,7 @@ namespace scene_builder{
 
                 }
                 if (scene_name == "custom_night"){
-                    main_menu::unload_main_menu(false, true);
+                    main_menu::unload_main_menu(false, false);
                     custom_night::create_custom_night_scene();
                     custom_night::load_custom_night_scene();
                     state::on_custom_night = true;
@@ -265,6 +265,9 @@ namespace scene_builder{
             i_renderer::background::custom_night::render_text();
             i_renderer::background::custom_night::render_actions();
             i_renderer::background::custom_night::render_golden_freddy();
+
+            i_renderer::effects::static_effect::render_static_effect();
+            i_renderer::effects::static_effect::animate_static_effect();
 
             button_action();
             set_ai_level_display();
