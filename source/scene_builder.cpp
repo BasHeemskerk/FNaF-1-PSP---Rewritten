@@ -13,11 +13,13 @@ namespace scene_builder{
                 if (scene_name == "newspaper"){
                     main_menu::unload_main_menu(true, true);
                     newspaper::load_newspaper_scene();
+                    animatronic::initialize_ai_level_system(0,0,0,0);
                     state::on_newspaper = true;
                 }
                 if (scene_name == "continue"){
                     main_menu::unload_main_menu(true, true);
                     continue_night::load_continue_scene();
+                    animatronic::initialize_ai_level_system(0,0,0,0);
                     state::on_continue = true;
 
                 }
@@ -40,6 +42,8 @@ namespace scene_builder{
                 if (scene_name == "continue"){
                     custom_night::unload_custom_night_scene(true);
                     continue_night::load_continue_scene();
+                    save_system::saved_night = 7;
+                    animatronic::initialize_ai_level_system(animatronic::freddy::ai_level,animatronic::bonnie::ai_level,animatronic::chica::ai_level,animatronic::foxy::ai_level);
                     state::on_continue = true;
                 }
 
@@ -150,6 +154,7 @@ namespace scene_builder{
                         initialize_scene("newspaper", "main_menu", "forward");
                     }
                     if (cursor_position == 2){
+                        save_system::saved_night = 6;
                         initialize_scene("continue", "main_menu", "forward");
                     }
                     if (cursor_position == 3){
@@ -231,7 +236,7 @@ namespace scene_builder{
 
         int position = 0;
 
-        int button_delay = 3;
+        int button_delay = 10;
 
         void load_custom_night_scene(){
             if (!loaded_files){

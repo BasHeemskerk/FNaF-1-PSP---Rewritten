@@ -87,4 +87,6 @@ namespace animatronic{
             void reload_path_image();
         }
     }
+
+    void initialize_ai_level_system(int freddy_level, int bonnie_level, int chica_level, int foxy_level);
 }

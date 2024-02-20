@@ -212,4 +212,19 @@ namespace animatronic{
             }
         }
     }
+
+    void initialize_ai_level_system(int freddy_level, int bonnie_level, int chica_level, int foxy_level){
+        if (save_system::saved_night != 7){
+            freddy_script::ai_init(0);
+            bonnie_script::ai_init(0);
+            chica_script::ai_init(0);
+            foxy_script::ai_init(0);
+        }
+        else{
+            freddy_script::ai_init(freddy_level);
+            bonnie_script::ai_init(bonnie_level);
+            chica_script::ai_init(chica_level);
+            foxy_script::ai_init(foxy_level);
+        }
+    }
 }
