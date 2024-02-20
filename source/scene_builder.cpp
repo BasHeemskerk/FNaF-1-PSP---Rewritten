@@ -22,7 +22,7 @@ namespace scene_builder{
 
                 }
                 if (scene_name == "custom_night"){
-                    main_menu::unload_main_menu(false, false);
+                    //main_menu::unload_main_menu(false, false);
                     custom_night::create_custom_night_scene();
                     custom_night::load_custom_night_scene();
                     state::on_custom_night = true;
@@ -33,7 +33,7 @@ namespace scene_builder{
             if (origin_scene == "custom_night"){
                 state::on_custom_night = false;
                 if (scene_name == "main_menu"){
-                    custom_night::unload_custom_night_scene(false);
+                    //custom_night::unload_custom_night_scene(false);
                     main_menu::load_main_menu();
                     state::on_menu = true;
                 }
@@ -54,6 +54,8 @@ namespace scene_builder{
         }
         void run_disclaimer_scene(){
             i_renderer::background::disclaimer::render_disclaimer();
+            i_renderer::effects::static_effect::render_static_effect();
+            i_renderer::effects::static_effect::animate_static_effect();
         }
         void exit_disclaimer(){
             i_loader::background::disclaimer::unload_disclaimer();
@@ -74,7 +76,6 @@ namespace scene_builder{
         void load_main_menu(){
             if (!loaded_files){
                 i_loader::background::menu::load_menu();
-                i_loader::effects::static_effect::load_static_effect();
                 music::load_music_file::load_music_file("menu/music", 0, OSL_FMT_NONE);
                 loaded_files = true;
             }
@@ -123,7 +124,7 @@ namespace scene_builder{
                 if (input::ctrlData.Buttons & PSP_CTRL_DOWN){
                     cursor_position += 1;
                 }
-                cursor_timer = 2;
+                cursor_timer = 5;
             }
             else{
                 cursor_timer -= 1;
@@ -156,7 +157,7 @@ namespace scene_builder{
                     }
                 }
 
-                button_delay = 3;
+                button_delay = 5;
             }
             else{
                 button_delay -= 1;
@@ -390,11 +391,14 @@ namespace scene_builder{
                     }
                 }
 
-                button_delay = 4;
+                button_delay = 5;
             }
             else{
                 button_delay -= 1;
             }
         }
+    }
+    namespace office{
+        //this is split up in seperate script
     }
 }

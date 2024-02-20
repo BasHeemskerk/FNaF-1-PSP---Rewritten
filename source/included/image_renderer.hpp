@@ -3,6 +3,7 @@
 #include "save_system.hpp"
 #include "game_text.hpp"
 #include "animatronic.hpp"
+#include "thread_id.hpp"
 
 namespace i_renderer{
     namespace background{

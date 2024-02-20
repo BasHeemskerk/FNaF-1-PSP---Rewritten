@@ -1,4 +1,5 @@
 #include "global.hpp"
+#include "thread_id.hpp"
 
 namespace i_loader{
     namespace background{
@@ -20,7 +21,7 @@ namespace i_loader{
             extern Image *logo;
             extern Image *star;
             extern Image *copyright_notice;
-
+            
             void load_menu_background();
             void unload_menu_background();
             void load_logo();
@@ -29,13 +30,13 @@ namespace i_loader{
             void unload_copyright();
             void load_text_and_cursor();
             void unload_text_and_cursor();
+
             void clear_menu();
             void load_menu();
         }
 
         namespace newspaper{
             extern Image *newspaper_file;
-
             void load_newspaper();
             void unload_newspaper();
         }
@@ -46,6 +47,7 @@ namespace i_loader{
 
             void load_night_information();
             void unload_night_information();
+
         }
 
         namespace custom_night{
@@ -99,5 +101,8 @@ namespace i_loader{
             void load_static_effect();
             void unload_static_effect();
         }
+    }
+    namespace camera_loader{
+        Image *load_target(std::string target);
     }
 }

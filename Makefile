@@ -19,6 +19,9 @@ source/freddy.o					\
 source/bonnie.o					\
 source/chica.o					\
 source/foxy.o					\
+source/office.o					\
+source/camera.o					\
+source/thread_id.o				\
 #source/image2.o					\
 #source/audio.o					\
 #source/state.o					\

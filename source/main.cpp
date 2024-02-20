@@ -170,6 +170,7 @@ void init_game(){
         initEngine();
         save_system::initialize::initialize_save_system();
         game_text::global::load_text();
+        i_loader::effects::static_effect::load_static_effect();
         engine_running = true;
     }
 }
@@ -179,6 +180,11 @@ void game_loop(){
     input::input();
 
     if (state::on_disclaimer){
+        //we prepare loading custom night when its unlocked
+        // this will extend loading time but not noticably
+        if (save_system::mode_two_unlocked == 1){
+            scene_builder::custom_night::load_custom_night_scene();
+        }
         scene_builder::disclaimer::run_disclaimer_scene();
         //input::set_input_delay(0);
 
@@ -200,7 +206,7 @@ void game_loop(){
         scene_builder::continue_night::run_continue_scene();
     }
     if (state::on_custom_night){
-        scene_builder::custom_night::load_custom_night_scene();
+        //scene_builder::custom_night::load_custom_night_scene();
         scene_builder::custom_night::run_custom_night_scene();
     }
 }

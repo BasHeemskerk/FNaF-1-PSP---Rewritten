@@ -3,6 +3,8 @@
 namespace i_loader{
     namespace background{
 
+        int PspThreadStatus = 1;
+
         namespace disclaimer{
 
             Image *disclaimer;
@@ -94,6 +96,7 @@ namespace i_loader{
                 unload_copyright();
                 unload_star();
                 unload_text_and_cursor();
+
             }
 
             void load_menu(){
@@ -102,6 +105,7 @@ namespace i_loader{
                 load_copyright();
                 load_star();
                 load_text_and_cursor();
+
             }
         }
 
@@ -271,6 +275,7 @@ namespace i_loader{
                 load_names();
                 load_actions();
                 load_golden_freddy();
+
             }
             void clear_custom_night(){
                 unload_icons();
@@ -282,6 +287,7 @@ namespace i_loader{
                 unload_names();
                 unload_actions();
                 unload_golden_freddy();
+
             }
         }
     }
@@ -303,6 +309,13 @@ namespace i_loader{
                     }
                 }
             }
+        }
+    }
+    namespace camera_loader{
+        Image *load_target(std::string target){
+            Image *target_image;
+            target_image = loadPng(target.c_str());
+            return target_image;
         }
     }
 }

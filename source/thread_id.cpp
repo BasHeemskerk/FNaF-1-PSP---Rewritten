@@ -1,0 +1,29 @@
+#include "included/thread_id.hpp"
+
+namespace thread_id{
+    int thread_a;
+    int thread_b;
+    int thread_c;
+    int thread_d;
+    int thread_e;
+    int thread_f;
+    int thread_g;
+    int thread_h;
+    int thread_j;
+    int thread_k;
+    int thread_l;
+    int thread_m;
+    int thread_n;
+    int thread_o;
+    int thread_p;
+    int thread_q;
+    int thread_r;
+    int thread_s;
+    int thread_t;
+    int thread_u;
+    int thread_v;
+    int thread_w;
+    int thread_x;
+    int thread_y;
+    int thread_z;
+}
