@@ -2,7 +2,7 @@
 #include "image_loader.hpp"
 #include "save_system.hpp"
 #include "game_text.hpp"
-#include "animatronic.hpp"
+#include "animatronic_manager.hpp"
 #include "thread_id.hpp"
 
 namespace i_renderer{

@@ -7,7 +7,6 @@ namespace scene_builder{
     void initialize_scene(const char *scene_name, const char *origin_scene, const char *dir){
         if (!initializing_scene){
             initializing_scene = true;
-
             if (origin_scene == "main_menu"){
                 state::on_menu = false;
                 if (scene_name == "newspaper"){

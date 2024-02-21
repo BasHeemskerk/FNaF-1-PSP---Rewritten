@@ -14,7 +14,7 @@ source/scene_builder.o			\
 source/input.o					\
 source/save_system.o			\
 source/game_text.o				\
-source/animatronic.o			\
+source/animatronic_manager.o	\
 source/freddy.o					\
 source/bonnie.o					\
 source/chica.o					\
@@ -22,6 +22,7 @@ source/foxy.o					\
 source/office.o					\
 source/camera.o					\
 source/thread_id.o				\
+source/debug.o					\
 #source/image2.o					\
 #source/audio.o					\
 #source/state.o					\

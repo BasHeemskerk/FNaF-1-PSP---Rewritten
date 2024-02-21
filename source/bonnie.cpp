@@ -1,8 +1,13 @@
-#include "included/animatronic.hpp"
+#include "included/animatronic_manager.hpp"
 
 namespace bonnie_script{
-    int delay = 389;
+    int delay = 400;
+    int delay_b;
     int level = 0;
+
+    int position = 0;
+    int previous_position;
+    int maximum_position = 6;
 
     void ai_init(int input_level){
 
@@ -36,6 +41,8 @@ namespace bonnie_script{
                 debug("bonnie level = custom");
                 break;
         }
+
+        delay_b = delay;
             
     }
 
@@ -43,7 +50,61 @@ namespace bonnie_script{
         std::cout << msg << std::endl;
     }
 
-    void ai_loop(){
+    int random_number(){
+        int rand_number;
+        rand_number = rand() % 20;
+        rand_number += 1;
+        return rand_number;
+    }
 
+    bool movement_opportunity(){
+        if (random_number() < level){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    bool below_maximum_position(){
+        if (position < maximum_position){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    void move_animatronic(){
+        previous_position = position;
+        position += 1;
+    }
+
+    bool should_update_components(){
+        if (position != previous_position){
+            previous_position = position;
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    void ai_loop(){
+        if (delay <= 0){
+            
+            if (movement_opportunity() == true && below_maximum_position() == true){
+                move_animatronic();
+                debug("bonnie moved!");
+            }
+            else{
+                debug("bonnie was not allowed to move!");
+            }
+
+            delay = delay_b;
+        }
+        else{
+            delay -= 1;
+        }
     }
 }

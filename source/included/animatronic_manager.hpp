@@ -16,8 +16,8 @@ namespace animatronic{
 
         namespace path{
             extern int current_position;
-            extern const char *path_array[4];
-            extern const char *path_type[4];
+            extern std::string path_array[4];
+            extern std::string path_type[4];
 
             void init_path_array();
             
@@ -36,8 +36,8 @@ namespace animatronic{
         
         namespace path{
             extern int current_position;
-            extern const char *path_array[7];
-            extern const char *path_type[7];
+            extern std::string path_array[7];
+            extern std::string path_type[7];
 
             void init_path_array();
             
@@ -56,8 +56,8 @@ namespace animatronic{
         
         namespace path{
             extern int current_position;
-            extern const char *path_array[7];
-            extern const char *path_type[7];
+            extern std::string path_array[7];
+            extern std::string path_type[7];
 
             void init_path_array();
             
@@ -76,8 +76,8 @@ namespace animatronic{
         
         namespace path{
             extern int current_position;
-            extern const char *path_array[3];
-            extern const char *path_type[3];
+            extern std::string path_array[3];
+            extern std::string path_type[3];
 
             void init_path_array();
             
@@ -89,4 +89,5 @@ namespace animatronic{
     }
 
     void initialize_ai_level_system(int freddy_level, int bonnie_level, int chica_level, int foxy_level);
+    void run_ai_system();
 }

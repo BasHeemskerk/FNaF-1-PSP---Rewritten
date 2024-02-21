@@ -1,5 +1,5 @@
 #include "global.hpp"
-#include "animatronic.hpp"
+#include "animatronic_manager.hpp"
 #include "camera.hpp"
 
 namespace office{

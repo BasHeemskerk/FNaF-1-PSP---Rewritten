@@ -7,7 +7,7 @@
 #include "save_system.hpp"
 #include "game_text.hpp"
 #include "state.hpp"
-#include "animatronic.hpp"
+#include "animatronic_manager.hpp"
 
 namespace scene_builder{
 

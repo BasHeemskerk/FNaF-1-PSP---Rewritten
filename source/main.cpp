@@ -12,6 +12,7 @@
 //#include "included/image2.hpp"
 //#include "included/audio.hpp"
 #include "included/state.hpp"
+#include "included/animatronic_manager.hpp"
 //#include "included/save.hpp"
 //#include "included/power.hpp"
 //#include "included/time.hpp"
@@ -204,6 +205,7 @@ void game_loop(){
     }
     if (state::on_continue){
         scene_builder::continue_night::run_continue_scene();
+        animatronic::run_ai_system();
     }
     if (state::on_custom_night){
         //scene_builder::custom_night::load_custom_night_scene();
