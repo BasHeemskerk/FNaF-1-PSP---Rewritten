@@ -102,6 +102,10 @@ namespace freddy_script{
         }
     }
 
+    void increment_difficulty(){
+        
+    }
+
     void ai_loop(){
         if (delay <= 0){
             

@@ -2,6 +2,7 @@
 #include "image_loader.hpp"
 #include "image_renderer.hpp"
 #include "music.hpp"
+#include "ambience.hpp"
 #include "audio_effects.hpp"
 #include "input.hpp"
 #include "save_system.hpp"
@@ -35,6 +36,7 @@ namespace scene_builder{
     namespace continue_night{
         void load_continue_scene();
         void unload_continue_scene();
+        void run_continue_timer();
         void run_continue_scene();
     }
     namespace custom_night{
@@ -45,5 +47,10 @@ namespace scene_builder{
 
         void button_action();
         void set_ai_level_display();
+    }
+    namespace office{
+        void load_office();
+        void unload_office();
+        void run_office_scene();
     }
 }

@@ -6,6 +6,7 @@ source/vram.o					\
 source/state.o					\
 source/disclaimer_basdev.o		\
 source/music.o					\
+source/ambience.o				\
 source/menu.o					\
 source/image_loader.o			\
 source/image_renderer.o			\
@@ -23,6 +24,9 @@ source/office.o					\
 source/camera.o					\
 source/thread_id.o				\
 source/debug.o					\
+source/time_manager.o			\
+source/power_manager.o			\
+source/game_reset.o				\
 #source/image2.o					\
 #source/audio.o					\
 #source/state.o					\

@@ -48,6 +48,26 @@ namespace scene_builder{
 
                 initializing_scene = false;
             }
+            if (origin_scene == "newspaper"){
+                state::on_newspaper = false;
+                if (scene_name == "continue"){
+                    newspaper::unload_newspaper_scene();
+                    continue_night::load_continue_scene();
+                    state::on_continue = true;
+                }
+
+                initializing_scene = false;
+            }
+            if (origin_scene == "continue"){
+                state::on_continue = false;
+                if (scene_name == "office"){
+                    continue_night::unload_continue_scene();
+                    office::load_office();
+                    state::on_office = true;
+                }
+
+                initializing_scene = false;
+            }
         }
     }
 
@@ -192,6 +212,9 @@ namespace scene_builder{
         bool loaded_files = false;
         bool created_scene = false;
 
+        int timer = 300;
+        int timer_b = 0;
+
         void load_newspaper_scene(){
             if (!loaded_files){
                 i_loader::background::newspaper::load_newspaper();
@@ -204,14 +227,28 @@ namespace scene_builder{
                 loaded_files = false;
             }
         }
+        void run_newspaper_timer(){
+            if (timer <= 0){
+                initialize_scene("continue", "newspaper", "forward");
+                timer = timer_b;
+            }
+            else{
+                timer -= 1;
+            }
+        }
         void run_newspaper_scene(){
             i_renderer::background::newspaper::render_newspaper();
+
+            run_newspaper_timer();
         }
     }
     namespace continue_night{
 
         bool loaded_files = false;
         bool created_scene = false;
+
+        int timer = 300;
+        int timer_b = 0;
 
         void load_continue_scene(){
             if (!loaded_files){
@@ -225,8 +262,19 @@ namespace scene_builder{
                 loaded_files = false;
             }
         }
+        void run_continue_timer(){
+            if (timer <= 0){
+                initialize_scene("office", "continue", "forward");
+                timer = timer_b;
+            }
+            else{
+                timer -= 1;
+            }
+        }
         void run_continue_scene(){
             i_renderer::background::continue_game::render_night_info();
+
+            run_continue_timer();
         }
     }
     namespace custom_night{
@@ -404,5 +452,16 @@ namespace scene_builder{
     }
     namespace office{
         //this is split up in seperate script
+        void load_office(){
+
+        }
+
+        void unload_office(){
+
+        }
+
+        void run_office_scene(){
+
+        }
     }
 }

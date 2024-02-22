@@ -205,7 +205,11 @@ void game_loop(){
     }
     if (state::on_continue){
         scene_builder::continue_night::run_continue_scene();
-        animatronic::run_ai_system();
+        //animatronic::run_ai_system();
+    }
+    if (state::on_office){
+        scene_builder::office::load_office();
+        scene_builder::office::run_office_scene();
     }
     if (state::on_custom_night){
         //scene_builder::custom_night::load_custom_night_scene();

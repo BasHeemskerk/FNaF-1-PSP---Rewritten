@@ -9,6 +9,7 @@ namespace thread_id{
     extern int thread_f;
     extern int thread_g;
     extern int thread_h;
+    extern int thread_i;
     extern int thread_j;
     extern int thread_k;
     extern int thread_l;
